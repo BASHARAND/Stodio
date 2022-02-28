@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="refresh" content="5">
+    <style>
+
+table {
+    border-collapse: 3;
+    border: 2px solid black;
+    width: 100%;
+}
+
+th, td {
+    text-align: center;
+    padding: 15px;
+
+
+}
+tr:hover {background-color: #f5f5f5;}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style>
+    <meta charset="UTF-8">
+    <title>إضافة ألبوم</title>
+</head>
+<body>
+<meta http-equiv="refresh" content="100">
+
+
+
+
+<table>
+  <tr>
+    <th>الحجم</th>
+    <th>النوع</th>
+    <th>النقش</th>
+    <th>اللون</th>
+          <th>العرسان</th>
+    <th>مطوية</th>
+    <th>مجلة</th>
+          <th>ميني</th>
+    <th>لوحة</th>
+    <th>فوتوشوب</th>
+          <th>التاريخ</th>
+       <th>تحميل الصور</th>
+
+
+
+
+{% for order in orders %}
+
+</style>
+  <tr {% ifequal order.state 0 %} style="background-color:lightred" {% endifequal %}
+{% ifequal order.state 1 %} style="background-color:yellow" {% endifequal %}>
+
+    <td>{{order.Size}}</td>
+    <td>{{order.Type}}</td>
+    <td>{{order.Write}}</td>
+    <td>{{order.Color}}</td>
+    <td>{{order.Hasbands}}</td>
+          <td>{{order.Fold}}</td>
+    <td>{{order.mag}}</td>
+    <td>{{order.many}}</td>
+          <td>{{order.board}}</td>
+    <td>{{order.photoshop}}</td>
+          <td>{{order.date}}</td>
+
+ <td><a href="{% url 'upload' id=order.id %}">
+  <button type="button" class="btn btn-danger">Done</button></a>
+</td>
+
+
+
+
+
+
+
+  </tr>
+
+
+{%endfor%}
+
+</table>
+
+
+</body>
+</html>
